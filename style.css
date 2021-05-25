@@ -1,0 +1,255 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.body {
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.container {
+  width: 1138px;
+  margin: 0 auto;
+  }
+
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  padding: 96px 0 128px;
+  background-color: rgb(117, 183, 185);
+  
+}
+
+.cart__box-for-card {
+  display: flex;
+  flex-direction: column;
+  width: 682px;
+}
+
+.cart__card {
+  position: relative;
+  display: flex;
+  height: 230px;
+  width: 550px;
+  box-shadow: 15px 15px 8px 0px rgba(34, 60, 80, 0.2);
+  margin: 0 30px 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.cart__card::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  right: 22px;
+  top: 28px;
+  background-image: url(./img/closer.svg);
+  background-size: cover;
+  position: absolute;
+}
+
+.cart__card-foto {
+  width: 202px;
+  height: 100%;
+}
+
+.cart__order-details-box {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0 0 31px;
+}
+
+.cart__order-details-title {
+  text-transform: uppercase;
+  width: 200px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  padding-bottom: 42px;
+}
+
+.cart__order-details-point {
+  text-transform: capitalize;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+  padding-bottom: 6px;
+}
+
+.cart__pink-price {
+  color: #F16D7F;
+}
+
+.cart__order-details-quantity {
+  position: relative;
+}
+
+.cart__order-details-quantity::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: '1';
+  width: 43px;
+  height: 24px;
+  right: 24px;
+  top: -1px;
+  border: 1px solid #EAEAEA;
+  position: absolute;
+}
+
+.cart__card-button-box {
+  margin-left: 30px;
+  padding: 32px 0 0;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.cart__card-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 300;
+  padding: 16px 38px;
+  border: 1px solid #A4A4A4;
+  background-color: #fff;
+  cursor: pointer;
+}
