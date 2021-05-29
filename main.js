@@ -1,20 +1,20 @@
 const products = [
-    {id: 1, title: 'Notebook', price: '2000'},
-    {id: 2, title: 'Mouse', price: '30'},
-    {id: 3, title: 'Keyboard', price: '200'},
-    {id: 4, title: 'GamePad'},
+    {id: 1, title: 'Notebook', price: 2000},
+    {id: 2, title: 'Mouse', price: 30},
+    {id: 3, title: 'Keyboard', price: 200},
+    {id: 4, title: 'GamePad', price: 400},
 ];
 
 
 const renderProduct = (title, price = 10) => {
-         return  `<div class="cart__card" >
+        return  `<div class="cart__card" >
                         <img class= "cart__card-foto" src= "./img/iii.png" alt="image">
                         <div class="cart__order-details-box">
                             <div class="cart__order-details-title">${title}</div>
                             <div class="cart__order-details-point">price: <span class="cart__pink-price">${price} </span></div>
                             <div class="cart__order-details-point cart__order-details-quantity">quantity:</div>
                         </div>
-                    </div>`
+                </div>`
 };
 
 
@@ -27,3 +27,36 @@ const randerPage = list => {
 
 
 randerPage(products);
+
+
+let initialValue = 0;
+const fullPrice = products.reduce(function(inithial, total){
+    return inithial + total.price;
+}, initialValue)
+console.log(fullPrice);
+
+
+
+let totalPrice =  document.querySelector(".cart__card-total-price")
+totalPrice.innerHTML = `<span> Total price : ${fullPrice}</span>`
+console.log(totalPrice);
+
+class Bascet {
+    addGoods () {
+
+    };
+    delGoods () {
+
+    };
+    totalPrice () {
+
+    };
+    buy () {
+
+    };
+
+};
+
+class Goods {
+    
+}
