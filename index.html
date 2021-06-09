@@ -40,12 +40,14 @@
     <script src="js/main.js"></script>
     <script>
     window.onload = () => {
-        let buttons = document.querySelectorAll('.buy-btn');
+        let list = new ProductList;
+        /* let buttons = document.querySelectorAll('.buy-btn');
+        console.log(buttons);
         buttons.forEach(btn => {
             btn.addEventListener('click', () =>{
-                let cartItem = new CartList(btn.dataset.title, btn.dataset.price ,btn.dataset.id, btn.dataset.img);
+                let cartItem = new CartList(btn.dataset.product_name, btn.dataset.price ,btn.dataset.id_product);
             })
-        })
+        }) */
     }
     </script>
 </body>

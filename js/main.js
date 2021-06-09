@@ -4,31 +4,58 @@ class ProductList {
     constructor(container = '.products') {
         this.container = container;
         this.goods = [];
-        this._fethProduct();
+        this.fetchProd = [];
+        this._getProducts()
+        .then(data => { //преобразованный методом.json  json-объект в JS-объект
+            this.goods = [...data];
+            this.render();
+            this.render()
+            this.getFullPrice();
+            this.createCart();       
+        });
+        //console.log(this);
+        //this._fethProduct();
+    }
+     _getProducts(){
+        return fetch(`${API}`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
     }
 
-_fethProduct(){
+    createCart(){
+        let buttons = document.querySelectorAll('.buy-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () =>{
+                let cartItem = new CartList(btn.dataset.title, btn.dataset.price ,btn.dataset.id_product);
+            })
+        })
+    }
+
+/* _fethProduct(){
     this.goods = [
         {id: 1, title: 'Notebook', price: 2000},
         {id: 2, title: 'Mouse', price: 20},
         {id: 3, title: 'Keyboard', price: 200},
         {id: 4, title: 'Gamepad', price: 50},
     ];
-}
+} */
 
 render() {
     const block = document.querySelector(this.container);
     for (let product of this.goods) {
         const productObj = new ProductItem(product);
-        block.insertAdjacentHTML("beforeend", productObj.render());
-        //  block.innerHTML += productObj.render(); второй вариант, но более медленный
+        this.fetchProd.push(productObj);
+        block.insertAdjacentHTML("beforeend", productObj.render());             //Z  block.innerHTML += productObj.render(); второй вариант, но более медленный
+
     }
 }
 
 // метод для расчета общей стоимости товаров.
 getFullPrice() {
 let initialValue = 0;
-const fullPrice = list.goods.reduce(function(inithial, total){
+const fullPrice = this.fetchProd.reduce(function(inithial, total){
     return inithial + total.price;
 }, initialValue)
 let totalPrice =  document.querySelector(".total_price")
@@ -39,10 +66,11 @@ totalPrice.innerHTML = `<h3>All products price: <span class="full_price_figure">
 
 class ProductItem {
     constructor(product, img='https://via.placeholder.com/200x150') {
-        this.title = product.title;
+        this.title = product.product_name;
         this.price = product.price;
-        this.id = product.id;
+        this.id = product.id_product;
         this.img = img;
+        //console.log(this);
     }
 
     render() {
@@ -56,20 +84,23 @@ class ProductItem {
 }
 
 class CartList {
-    constructor(title, price, id, img, container = '.cart-box') {
-        this.title = title;
+    constructor(product_name, price, id, container = '.cart-box') {
+        this.title = product_name;
         this.price = price;
         this.id = id;
-        this.img = img;
+        //this.img = img;
         this.mass = [];
         this.container = container;
         this._addGoods(this);
         this._addMark();
+        console.log(this);
     }
+    
 
     _addGoods (item) {
         const block = document.querySelector(item.container);
         const cartItem = new CartItem(item);
+        //console.log(cartItem);
         block.insertAdjacentHTML("beforeend", cartItem._render()); 
         }
 
@@ -106,11 +137,3 @@ class CartItem {
             ` 
     }
 } 
-
-
-let list = new ProductList;
-list.render();
-list.getFullPrice();
-
-
-
