@@ -2,29 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header></header>
-        <main>
-            <div class="cart container">
-                <div class="cart__box-for-card">
-                    <div class="product"></div>
-                    <div class="cart__card-button-box">
-                        <button class="cart__card-button">
-                            <a class="cart__card-link" href="./catalog.html">continue shopping</a>
-                        </button>
-                        <div class="cart__card-total-box"> 
-                            <div class="cart__card-total cart__card-total-price"></div>
-                            <div class="cart__card-total cart__card-total-count">total count</div>
-                        </div>
-                    </div>
-                </div>
+    <header>
+        <div class="logo">E-shop</div>
+        <button class="btn-cart" type="button">Корзина
+            
+        </button>
+        
+    </header>
+    <main>
+        <div class="products">
+            
+        </div>
+        <div class="total_price">
+
+        </div>
+        <div class="cart">
+            <div class="cart-box">
+                <div class="cart-title"><h3 >cart</h3></div>
+                
             </div>
-        </main>
-        <script src="./main.js"></script>
+
+        </div>
+    </main>
+		<!--beforestart-->
+		<p>
+		<!--afterstart-->
+			<span></span>
+			<!--beforeend-->
+		</p>
+		<!--afterend-->
+
+    <script src="js/main.js"></script>
+    <script>
+    window.onload = () => {
+        let buttons = document.querySelectorAll('.buy-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () =>{
+                let cartItem = new CartList(btn.dataset.title, btn.dataset.price ,btn.dataset.id, btn.dataset.img);
+            })
+        })
+    }
+    </script>
 </body>
 </html>
