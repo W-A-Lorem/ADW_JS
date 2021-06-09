@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">E-shop</div>
+        <button class="btn-cart" type="button">Корзина
+            
+        </button>
+        
+    </header>
+    <main>
+        <div class="products">
+            
+        </div>
+        <div class="total_price">
+
+        </div>
+        <div class="cart">
+            <div class="cart-box">
+                <div class="cart-title"><h3 >cart</h3></div>
+                
+            </div>
+            
+
+        </div>
+    </main>
+		<!--beforestart-->
+		<p>
+		<!--afterstart-->
+			<span></span>
+			<!--beforeend-->
+		</p>
+		<!--afterend-->
+
+    <script src="js/main.js"></script>
+    <script>
+    window.onload = () => {
+        let list = new ProductList;
+        /* let buttons = document.querySelectorAll('.buy-btn');
+        console.log(buttons);
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () =>{
+                let cartItem = new CartList(btn.dataset.product_name, btn.dataset.price ,btn.dataset.id_product);
+            })
+        }) */
+    }
+    </script>
+</body>
+</html>
