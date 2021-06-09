@@ -1,17 +1,22 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json   '
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json'
+const API_basket = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json'
 
 class ProductList {
     constructor(container = '.products') {
         this.container = container;
         this.goods = [];
         this.fetchProd = [];
+        this._getBasket()
+        .then(data => { //преобразованный методом.json  json-объект в JS-объект
+            this.outputBaskcetRobins(data)})
+
         this._getProducts()
         .then(data => { //преобразованный методом.json  json-объект в JS-объект
             this.goods = [...data];
             this.render();
             this.render()
             this.getFullPrice();
-            this.createCart();       
+            this.addToCart();       
         });
         //console.log(this);
         //this._fethProduct();
@@ -24,7 +29,19 @@ class ProductList {
             })
     }
 
-    createCart(){
+    _getBasket(){
+        return fetch(`${API_basket}`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    outputBaskcetRobins(data){
+        console.log(data); 
+    }
+
+    addToCart(){
         let buttons = document.querySelectorAll('.buy-btn');
         buttons.forEach(btn => {
             btn.addEventListener('click', () =>{
@@ -50,6 +67,11 @@ render() {
         block.insertAdjacentHTML("beforeend", productObj.render());             //Z  block.innerHTML += productObj.render(); второй вариант, но более медленный
 
     }
+}
+
+
+_renderFetchBask(blockForBas){
+    
 }
 
 // метод для расчета общей стоимости товаров.
